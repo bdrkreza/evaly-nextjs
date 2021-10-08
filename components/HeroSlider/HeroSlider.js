@@ -52,6 +52,7 @@ export default function HeroSlider() {
               </div>
             </div>
           </div>
+
           <div className="d-flex sell-img">
             <img src="images/slider/sell.png" alt="" />
             <img src="images/slider/sell.png" alt="" />

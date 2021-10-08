@@ -81,7 +81,7 @@ function Navbar() {
       </div>
 
       {/* End Main Header */}
-      <SideMenu />
+
       {/* Mobile and Tab Navigation  */}
       <MFooter />
     </>

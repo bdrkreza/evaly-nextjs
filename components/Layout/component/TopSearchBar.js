@@ -1,13 +1,19 @@
+/* eslint-disable jsx-a11y/role-supports-aria-props */
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { AiOutlineBell } from "react-icons/ai";
 import { BsChatQuote, BsPerson } from "react-icons/bs";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import { RiSearchLine } from "react-icons/ri";
+import CartModel from "../../Model/CartModel";
 import MTopBar from "../MobailComponent/MTopBar";
+import Notification from "./DropdownMenu/Notification";
+import UserDropdown from "./DropdownMenu/UserDropdown";
 
 export default function TopSearchBar() {
+  const [open, setOpen] = useState(false);
+
   return (
     <>
       <MTopBar />
@@ -44,21 +50,61 @@ export default function TopSearchBar() {
                     <HiOutlineShoppingCart />
                   </a>
                 </li>
+
+                <CartModel />
+                {/* Notification Section */}
+                <div className="btn-group">
+                  <li
+                    className="dropdown-toggle nav-item"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    <a className="nav-link top_icon" href="#">
+                      <AiOutlineBell />
+                    </a>
+                  </li>
+                  <div className="dropdown-menu mt-3">
+                    <Notification />
+                  </div>
+                </div>
+
+                {/* ChatSection */}
+                <div className="btn-group">
+                  <li
+                    className="dropdown-toggle nav-item"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    <a className="nav-link top_icon" href="#">
+                      <BsChatQuote />
+                    </a>
+                  </li>
+                  <div className="dropdown-menu mt-3">user</div>
+                </div>
+
+                {/* userProfile section */}
                 <li className="nav-item">
-                  <a className="nav-link top_icon" href="#">
-                    <AiOutlineBell />
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link top_icon" href="#">
-                    <BsChatQuote />
-                  </a>
-                </li>
-                <li className="nav-item ">
-                  <a className="nav-link top_icon" href="#">
+                  <a
+                    className="nav-link top_icon d-block"
+                    href="#sidebar"
+                    data-bs-toggle="offcanvas"
+                    role="button"
+                    aria-controls="sidebar"
+                  >
                     <BsPerson />
                   </a>
                 </li>
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  data-toggle="modal"
+                  data-target="#exampleModal4"
+                >
+                  Overflow
+                </button>
+                <UserDropdown />
               </ul>
             </div>
           </div>

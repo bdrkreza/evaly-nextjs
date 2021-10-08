@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function Campaigns() {
+export default function campaigns() {
   return (
     <div>
-      <h1>this is cam</h1>
+      <h1> this is campaigns</h1>
     </div>
   );
 }
