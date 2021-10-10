@@ -1,18 +1,22 @@
 import React from "react";
 
-export default function SideMenu() {
+export default function UserSideMenu({ setUserMenu }) {
   return (
     <>
-      <div className="side-menu-overlay">
+      <div className="side-menu-overlay " onClick={() => setUserMenu(false)}>
         <div className="side-menu">
           {/* Top Section*/}
-          <div className="side-menu-top  ">
+          <div className="side-menu-top">
             <img
               className="navbar-brand-icon "
               src="images/icons/e-valiy.png"
               alt
             />
-            <span id="times-icon" className="times-icon d-inline-block">
+            <span
+              id="times-icon"
+              onClick={() => setUserMenu(false)}
+              className="times-icon d-inline-block"
+            >
               ×
             </span>
           </div>

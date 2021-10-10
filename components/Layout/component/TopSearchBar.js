@@ -7,12 +7,13 @@ import { BsChatQuote, BsPerson } from "react-icons/bs";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import { RiSearchLine } from "react-icons/ri";
 import CartModel from "../../Model/CartModel";
+import UserSideMenu from "../../Model/UserSideMenu";
 import MTopBar from "../MobailComponent/MTopBar";
 import Notification from "./DropdownMenu/Notification";
-import UserDropdown from "./DropdownMenu/UserDropdown";
 
 export default function TopSearchBar() {
   const [open, setOpen] = useState(false);
+  const [showUserMenu, setUserMenu] = useState(false);
 
   return (
     <>
@@ -46,7 +47,12 @@ export default function TopSearchBar() {
             <div className="col-md-3">
               <ul className="navbar-nav">
                 <li className="nav-item">
-                  <a className="nav-link top_icon" href="#">
+                  <a
+                    className="nav-link top_icon"
+                    data-toggle="modal"
+                    data-target="#cardModel"
+                    href="#"
+                  >
                     <HiOutlineShoppingCart />
                   </a>
                 </li>
@@ -85,26 +91,14 @@ export default function TopSearchBar() {
                 </div>
 
                 {/* userProfile section */}
-                <li className="nav-item">
-                  <a
-                    className="nav-link top_icon d-block"
-                    href="#sidebar"
-                    data-bs-toggle="offcanvas"
-                    role="button"
-                    aria-controls="sidebar"
-                  >
+                <li className="nav-item" onClick={() => setUserMenu(true)}>
+                  <a className="nav-link top_icon d-block">
                     <BsPerson />
                   </a>
                 </li>
-                <button
-                  type="button"
-                  className="btn btn-primary"
-                  data-toggle="modal"
-                  data-target="#exampleModal4"
-                >
-                  Overflow
-                </button>
-                <UserDropdown />
+                {showUserMenu ? (
+                  <UserSideMenu setUserMenu={setUserMenu} />
+                ) : null}
               </ul>
             </div>
           </div>

@@ -2,42 +2,67 @@
 import React from "react";
 
 export default function CartModel() {
-  function openRightMenu() {
-    document.getElementById("rightMenu").style.display = "block";
-  }
-
-  function closeRightMenu() {
-    document.getElementById("rightMenu").style.display = "none";
-  }
   return (
-    <div>
-      <button
-        className="w3-button w3-teal w3-xlarge w3-right"
-        onClick={openRightMenu}
-      >
-        &#9776;
-      </button>
+    <>
       <div
-        className="w3-sidebar w3-bar-block w3-card w3-animate-right"
-        style={{ display: "none", right: "0" }}
-        id="rightMenu"
+        className="modal fade"
+        id="cardModel"
+        tabIndex="-1"
+        role="dialog"
+        aria-labelledby="cartModel"
+        aria-hidden="true"
       >
-        <button
-          onClick={closeRightMenu}
-          className="w3-bar-item w3-button w3-large"
+        <div
+          className="modal-dialog modal-dialog-slideout modal-sm"
+          role="document"
         >
-          Close &times;
-        </button>
-        <a href="#" className="w3-bar-item w3-button">
-          Link 1
-        </a>
-        <a href="#" className="w3-bar-item w3-button">
-          Link 2
-        </a>
-        <a href="#" className="w3-bar-item w3-button">
-          Link 3
-        </a>
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLabel">
+                card model
+              </h5>
+              <button
+                type="button"
+                className="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div className="modal-body">
+              <p>
+                Explore the history of the classic Lorem Ipsum passage and
+                generate your own text using any number of characters, words,
+                sentences or paragraphs. Commonly used as placeholder text in
+                the graphic and print industries, Lorem Ipsum s origins extend
+                far back to a scrambled Latin passage from Cicero in the middle
+                ages.
+              </p>
+              <p>
+                Explore the history of the classic Lorem Ipsum passage and
+                generate your own text using any number of characters, words,
+                sentences or paragraphs. Commonly used as placeholder text in
+                the graphic and print industries, Lorem Ipsum's origins extend
+                far back to a scrambled Latin passage from Cicero in the middle
+                ages.
+              </p>
+            </div>
+            <div className="modal-footer">
+              <button
+                type="button"
+                className="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="button" className="btn btn-primary">
+                Save changes
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

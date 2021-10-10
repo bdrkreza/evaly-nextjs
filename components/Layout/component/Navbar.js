@@ -4,7 +4,7 @@ import { FaList } from "react-icons/fa";
 import { FiChevronDown } from "react-icons/fi";
 import MFooter from "../MobailComponent/MFooter";
 import DropdownItem from "./DropdownItem";
-import SideMenu from "./SideMenu";
+
 function Navbar() {
   return (
     <>
