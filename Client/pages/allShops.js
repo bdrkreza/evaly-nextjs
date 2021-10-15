@@ -1,10 +1,10 @@
 import React from "react";
-import SellSection from "../components/SellSection";
+import AllShopCard from "../components/AllShopCard/AllShopCard";
 
 export default function allShops() {
   return (
     <div>
-      <SellSection />
+      <AllShopCard />
     </div>
   );
 }

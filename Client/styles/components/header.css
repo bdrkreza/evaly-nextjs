@@ -100,7 +100,7 @@ a:hover {
   background: #f7f8fa;
 }
 
-.navbar-1 .nav-link {
+.navbar-1 .nav_link {
   border: 2px dotted #f1f1f1;
   margin: 0 10px;
   border-radius: 50%;
@@ -108,7 +108,7 @@ a:hover {
   box-shadow: 0px 0px 2px #efe0e0;
 }
 
-.navbar-1 .nav-link:hover {
+.navbar-1 .nav_link:hover {
   border: 1px solid var(--placeholder);
 }
 
@@ -116,7 +116,7 @@ a:hover {
   background-color: var(--border-colo);
 }
 
-.navbar-1 .nav-link {
+.navbar-1 .nav_link {
   border: 1px dotted #b68282;
   margin: 0px 6px;
   border-radius: 50%;
@@ -192,16 +192,76 @@ a:hover {
 }
 
 .dropdown-menu {
-  width: 260px;
   border: none !important;
   box-shadow: 0px 0px 0 rgba(0, 0, 0, 0.2), 0 -1px 5px 0 rgba(0, 0, 0, 0.19);
   border-radius: 0px;
   margin: 0px;
   padding-top: 0px;
-  padding-bottom: 50px;
-  text-transform: initial;
+  padding-bottom: 0px;
+  transition: 0.3s;
 }
 
+.notification_menu {
+  position: relative;
+}
+.notification_cart {
+  position: absolute;
+  margin-top: 20px;
+  box-shadow: 0px 0px 0 rgba(0, 0, 0, 0.2), 0 -1px 5px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 2px;
+  transition: 0.3s;
+  width: 400px;
+  z-index: 20;
+}
+
+.notification_btn a {
+  font-weight: 400;
+  font-size: large;
+  transition: all 0.3s ease-out 0s;
+  position: relative;
+  z-index: 1;
+}
+
+.notification_btn a::after {
+  content: "";
+  position: relative;
+  display: block;
+  height: 2px;
+  width: 0;
+  border-radius: 16px;
+  background: rgb(211, 58, 19);
+  bottom: 1px;
+  left: 0;
+  z-index: -1;
+  transition: all 0.3s ease-out 0s;
+}
+
+.notification_btn a:hover::after {
+  width: 100%;
+}
+
+.notification_btn a:focus::after {
+  width: 100%;
+}
+
+.card svg {
+  width: 100px !important;
+  height: 50px;
+  color: rgba(165, 131, 18, 0.678);
+}
+.navbar_items {
+  border: none !important;
+  box-shadow: 0px 0px 0 rgba(0, 0, 0, 0.2), 0 -1px 5px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 0px;
+  margin: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  transition: 0.3s;
+}
+
+.navbar_items svg {
+  color: #f1f1f185;
+}
 .dropdown-item {
   font-size: 15px;
   border-bottom: 1px solid var(--border-color);

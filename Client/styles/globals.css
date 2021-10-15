@@ -15,6 +15,7 @@
 @import "./components/header.css";
 @import "./components/footer.css";
 @import "./components/mediaQuery.css";
-@import "./components/Dropdown.css";
+@import "./components/Shoppingcart.css";
 @import "./components/model.css";
 @import "./components/sidemenu.css";
+@import "./components/AllShopCard.css";

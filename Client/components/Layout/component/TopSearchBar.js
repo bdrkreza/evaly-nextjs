@@ -6,13 +6,15 @@ import { AiOutlineBell } from "react-icons/ai";
 import { BsChatQuote, BsPerson } from "react-icons/bs";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import { RiSearchLine } from "react-icons/ri";
-import CartModel from "../../Model/CartModel";
+import ShoppingCart from "../../Model/ShoppingCart";
 import UserSideMenu from "../../Model/UserSideMenu";
 import MTopBar from "../MobailComponent/MTopBar";
+import ChatMenu from "./DropdownMenu/ChatMenu";
 import Notification from "./DropdownMenu/Notification";
 
 export default function TopSearchBar() {
-  const [open, setOpen] = useState(false);
+  const [notificationOpen, setNotificationOpen] = useState(false);
+  const [ChatOpen, setChatOpen] = useState(false);
   const [showUserMenu, setUserMenu] = useState(false);
 
   return (
@@ -48,7 +50,7 @@ export default function TopSearchBar() {
               <ul className="navbar-nav">
                 <li className="nav-item">
                   <a
-                    className="nav-link top_icon"
+                    className="nav-link nav_link top_icon"
                     data-toggle="modal"
                     data-target="#cardModel"
                     href="#"
@@ -56,48 +58,54 @@ export default function TopSearchBar() {
                     <HiOutlineShoppingCart />
                   </a>
                 </li>
+                <ShoppingCart />
 
-                <CartModel />
                 {/* Notification Section */}
-                <div className="btn-group">
-                  <li
-                    className="dropdown-toggle nav-item"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    <a className="nav-link top_icon" href="#">
-                      <AiOutlineBell />
-                    </a>
-                  </li>
-                  <div className="dropdown-menu mt-3">
-                    <Notification />
+
+                <div className="notification_menu">
+                  <div className="btn-group">
+                    <li onClick={() => setNotificationOpen(!notificationOpen)}>
+                      <a className="nav-link nav_link top_icon" href="#">
+                        <AiOutlineBell />
+                      </a>
+                    </li>
                   </div>
+                  {notificationOpen ? (
+                    <div className=" notification_cart">
+                      <Notification setNotificationOpen={setNotificationOpen} />
+                    </div>
+                  ) : null}
                 </div>
 
                 {/* ChatSection */}
-                <div className="btn-group">
-                  <li
-                    className="dropdown-toggle nav-item"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    <a className="nav-link top_icon" href="#">
-                      <BsChatQuote />
-                    </a>
-                  </li>
-                  <div className="dropdown-menu mt-3">user</div>
+                <div>
+                  <div className="btn-group">
+                    <li onClick={() => setChatOpen(!ChatOpen)}>
+                      <a className="nav-link nav_link top_icon" href="#">
+                        <BsChatQuote />
+                      </a>
+                    </li>
+                  </div>
+                  <div>
+                    {ChatOpen ? (
+                      <div className=" notification_cart">
+                        <ChatMenu setChatOpen={setChatOpen} />
+                      </div>
+                    ) : null}
+                  </div>
                 </div>
 
                 {/* userProfile section */}
                 <li className="nav-item" onClick={() => setUserMenu(true)}>
-                  <a className="nav-link top_icon d-block">
+                  <a className="nav-link  nav_link top_icon d-block">
                     <BsPerson />
                   </a>
                 </li>
                 {showUserMenu ? (
-                  <UserSideMenu setUserMenu={setUserMenu} />
+                  <UserSideMenu
+                    setUserMenu={setUserMenu}
+                    showUserMenu={showUserMenu}
+                  />
                 ) : null}
               </ul>
             </div>

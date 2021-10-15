@@ -2,9 +2,10 @@ import Link from "next/link";
 import React from "react";
 import { FaList } from "react-icons/fa";
 import { FiChevronDown } from "react-icons/fi";
+import { HiDotsVertical } from "react-icons/hi";
 import MFooter from "../MobailComponent/MFooter";
 import DropdownItem from "./DropdownItem";
-
+import NavbarItem from "./NavbarItem";
 function Navbar() {
   return (
     <>
@@ -58,7 +59,7 @@ function Navbar() {
               </li>
             </ul>
 
-            <ul className="navbar-nav ml-auto">
+            <ul className="navbar-nav ml-auto nav-items">
               <li className="nav-item">
                 <Link href="/newsFeed">
                   <a className="nav-link">News Feed</a>
@@ -76,6 +77,22 @@ function Navbar() {
                 </Link>
               </li>
             </ul>
+
+            <div className="btn-group navbar-nav navbar_items">
+              <li
+                className="dropdown-toggle nav-item"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <a className="nav-link top_icon " href="#">
+                  <HiDotsVertical />
+                </a>
+              </li>
+              <div className="dropdown-menu mt-2">
+                <NavbarItem />
+              </div>
+            </div>
           </div>
         </nav>
       </div>
