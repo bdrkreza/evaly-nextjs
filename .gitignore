@@ -2,7 +2,7 @@
 
 # dependencies
 /server/node_modules
-/Client/node_modules
+/client/node_modules
 
 /server/.env
 /.pnp
@@ -12,7 +12,7 @@
 /coverage
 
 # next.js
-/Client/.next/
+/client/.next/
 /out/
 
 # production

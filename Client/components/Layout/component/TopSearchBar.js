@@ -4,8 +4,8 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { AiOutlineBell } from "react-icons/ai";
 import { BsChatQuote, BsPerson } from "react-icons/bs";
-import { HiOutlineShoppingCart } from "react-icons/hi";
 import { RiSearchLine } from "react-icons/ri";
+import { useSelector } from "react-redux";
 import ShoppingCart from "../../Model/ShoppingCart";
 import UserSideMenu from "../../Model/UserSideMenu";
 import MTopBar from "../MobailComponent/MTopBar";
@@ -16,6 +16,7 @@ export default function TopSearchBar() {
   const [notificationOpen, setNotificationOpen] = useState(false);
   const [ChatOpen, setChatOpen] = useState(false);
   const [showUserMenu, setUserMenu] = useState(false);
+  const quantity = useSelector((state) => state.cart.cartTotalQuantity);
 
   return (
     <>
@@ -48,15 +49,26 @@ export default function TopSearchBar() {
           <div className="collapse navbar-collapse navbar-1 bg-wight">
             <div className="col-md-3">
               <ul className="navbar-nav">
-                <li className="nav-item">
+                <li className="nav-item cart_icon">
                   <a
-                    className="nav-link nav_link top_icon"
+                    className=""
                     data-toggle="modal"
                     data-target="#cardModel"
                     href="#"
                   >
-                    <HiOutlineShoppingCart />
+                    <div
+                      className="icon-cart nav-link nav_link top_icon"
+                      style={{ clear: "left", float: "left" }}
+                    >
+                      <div className="cart-line-1"></div>
+                      <div className="cart-line-2"></div>
+                      <div className="cart-line-3"></div>
+                      <div className="cart-wheel"></div>
+                    </div>
                   </a>
+                  <span className="counter text-center">
+                    <span>{quantity}</span>
+                  </span>
                 </li>
                 <ShoppingCart />
 

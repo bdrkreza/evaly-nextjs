@@ -1,8 +1,10 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from "react";
 import { GrClose } from "react-icons/gr";
+import { useSelector } from "react-redux";
 import ShoppingCartItem from "./ShoppingCartItem";
 export default function ShoppingCart() {
+  const cart = useSelector((state) => state.cart);
   return (
     <>
       <div
@@ -33,12 +35,9 @@ export default function ShoppingCart() {
             </div>
             <div className="modal-body">
               <div className="container mt-1">
-                <ShoppingCartItem />
-                <ShoppingCartItem />
-                <ShoppingCartItem />
-                <ShoppingCartItem />
-                <ShoppingCartItem />
-                <ShoppingCartItem />
+                {cart.cartItems.map((cart, index) => (
+                  <ShoppingCartItem key={index} cart={cart} />
+                ))}
               </div>
             </div>
             <div>
@@ -49,7 +48,7 @@ export default function ShoppingCart() {
                   <ul className="list-group list-group-flush">
                     <li className="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
                       Temporary amount
-                      <span>$25.98</span>
+                      <span>${cart.cartTotalAmount}</span>
                     </li>
                     <li className="list-group-item d-flex justify-content-between align-items-center px-0">
                       Shipping
@@ -63,7 +62,7 @@ export default function ShoppingCart() {
                         </strong>
                       </div>
                       <span>
-                        <strong>$53.98</strong>
+                        <strong>${cart.cartTotalAmount}</strong>
                       </span>
                     </li>
                   </ul>
